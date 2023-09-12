@@ -199,10 +199,10 @@
                         href="javascript:void(0)">
                         <span>Lock Account</span>
                     </a>
-                    <a class="dropdown-item d-flex align-items-center justify-content-between"
-                        href="javascript:void(0)">
-                        <span>Log Out</span>
-                    </a>
+                    <form method="POST" action="{{ route('admin.logout') }}">
+                        @csrf
+                        <input type="submit" value="logout">
+                    </form>
                 </div>
             </div>
 
