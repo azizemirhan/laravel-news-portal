@@ -37,25 +37,30 @@
                                                     <span><img src="http://127.0.0.1:8000/admin/assets/images/logo-dark.png" alt="" height="26"></span>
                                                 </a>
                                             </div>
-                                            <form action="mt-3" class="p-2">
+                                            <form method="POST" action="{{ route('admin.handle-login') }}" class="p-2">
+                                                @csrf
                                                 <div class="form-group">
-                                                    <label for="emailaddress">Email address</label>
-                                                    <input class="form-control" type="email" id="emailaddress" required="" placeholder="john@deo.com">
+                                                    <label for="emailaddress">Email</label>
+                                                    <input class="form-control" type="email" name="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <a href="pages-recoverpw.html" class="text-muted float-right">Forgot your password?</a>
-                                                    <label for="password">Password</label>
-                                                    <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                                    <a href="pages-recoverpw.html" class="text-muted float-right">Şifremi Unuttum</a>
+                                                    <label for="password">Şifre</label>
+                                                    @error('email')
+                                                        <code>{{ $message }}</code>
+                                                    @enderror
+                                                    <input class="form-control" type="password" name="password">
                                                 </div>
-            
-                                                <div class="form-group mb-4 pb-3">
-                                                    <div class="custom-control custom-checkbox checkbox-primary">
-                                                        <input type="checkbox" class="custom-control-input" id="checkbox-signin">
-                                                        <label class="custom-control-label" for="checkbox-signin">Remember me</label>
+                                                <div class="custom-control checkbox-primary">
+                                                        <input type="checkbox" name="remember">
+                                                        <label class="label" for="checkbox-signin">Beni Hatırla</label>
                                                     </div>
                                                 </div>
+                                                
+                                                <div class="form-group mb-4 pb-3">
+                                                  
                                                 <div class="mb-3 text-center">
-                                                    <button class="btn btn-primary btn-block" type="submit"> Sign In </button>
+                                                    <input class="btn btn-primary btn-block" type="submit" value="Giriş Yap">
                                                 </div>
                                             </form>
                                         </div>
@@ -65,7 +70,7 @@
             
                                     <div class="row mt-4">
                                         <div class="col-sm-12 text-center">
-                                            <p class="text-white-50 mb-0">Create an account? <a href="pages-register.html" class="text-white-50 ml-1"><b>Sign Up</b></a></p>
+                                            <p class="text-white-50 mb-0">Hesabın Yokmu? <a href="pages-register.html" class="text-white-50 ml-1"><b>Kayıt Ol</b></a></p>
                                         </div>
                                     </div>
             
